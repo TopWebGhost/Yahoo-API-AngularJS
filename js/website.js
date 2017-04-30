@@ -36,7 +36,7 @@ angular.module('website', ['ngRoute', '720kb.datepicker']).
         }
         $scope.getData = function() {
 
-            var url = "http://query.yahooapis.com/v1/public/yql";
+            var url = "https://query.yahooapis.com/v1/public/yql";
             var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" +$scope.symbol+ "')");
 
             var str1 = url.concat("?q=",data);
@@ -169,7 +169,7 @@ angular.module('website', ['ngRoute', '720kb.datepicker']).
         }
         $scope.getData = function() {
 
-            var url = "http://query.yahooapis.com/v1/public/yql";
+            var url = "https://query.yahooapis.com/v1/public/yql";
             var symbols = "";
             $scope.symbols.forEach(function(symbol) {
                 symbols += "'" + symbol + "',";
@@ -255,7 +255,7 @@ angular.module('website', ['ngRoute', '720kb.datepicker']).
         $scope.myList = [];
         $scope.results = [];
         $scope.getData = function() {
-            var url = "http://query.yahooapis.com/v1/public/yql";
+            var url = "https://query.yahooapis.com/v1/public/yql";
             var symbols = "";
             $scope.myList.forEach(function(symbol) {
                 symbols += "'" + symbol.symbol + "',";
