@@ -1,30 +1,51 @@
 <div class="home-container">
     <div class="container">
-        <div class="select-container">
-            <div class="date-picker-container">
-                date-picker
+        <div class="select-container row">
+            <div class="col-xs-6 date-picker-container">
+                <button class="btn btn-success" ng-click="refresh()">Refresh</button>
             </div>
-            <div class="symbol-picker-container">
-                symbol-picker
+            <div class="col-xs-6 symbol-picker-container">
+                <input type="text" class="form-control" placeholder="Symbol" ng-model="symbol">
+                <button class="btn btn-success" ng-click="lookup(symbol)">Lookup</button>
             </div>
         </div>
         <div class="table-container">
             <table class="responsive-table">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Job Title</th>
+                    <th>Symbol</th>
+                    <th>Last Price</th>
+                    <th>Today's Volume</th>
+                    <th>52 Week average volume</th>
+                    <th>%Change</th>
+                    <th>Previous close</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td mobile-title="'First Name">James</td>
-                    <td>Matman</td>
-                    <td>Chief Sandwich Eater</td>
+                <tr ng-repeat="quote in results">
+                    <td mobile-title="Symbol"><a href="#/detail/{{quote.symbol}}">{{quote.symbol}}</a></td>
+                    <td mobile-title="Last Price">{{quote.lastPrice}}</td>
+                    <td mobile-title="Today's Volume">{{quote.volume}}</td>
+                    <td mobile-title="52 Week average volume">{{quote.yearRange}}</td>
+                    <td mobile-title="%Change">{{quote.percentChange}}</td>
+                    <td mobile-title="Previous close">{{quote.previousClose}}</td>
                 </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="news-container">
+            <ul>
+                <li ng-repeat="data in news">
+                    <a href="{{data.url}}" class="news-item">
+                        <img src="{{data.thumbnail}}" ng-if="data.thumbnail">
+                        <div class="content {{data.thumbnail?'haveImage':''}}">
+                            <h1>{{data.title}}</h1>
+                            <p>{{data.summary}}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

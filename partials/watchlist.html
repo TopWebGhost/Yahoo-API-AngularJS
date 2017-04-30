@@ -1,0 +1,27 @@
+<div class="watchlist-container">
+    <div class="container">
+        <div class="input-container">
+            <input type="text" class="form-control" placeholder="Symbol" ng-model="symbol">
+            <input type="number" class="form-control" placeholder="Price" ng-model="price">
+            <button class="btn btn-success" ng-click="add()">Add</button>
+        </div>
+        <div class="list-container">
+            <table class="responsive-table">
+                <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Wish Price</th>
+                    <th>Current Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="quote in myList">
+                    <td mobile-title="Symbol"><a href="#/detail/{{quote.symbol}}">{{quote.symbol}}</a></td>
+                    <td mobile-title="Wish Price">{{quote.wishPrice}}</td>
+                    <td mobile-title="Current Price">{{quote.currentPrice}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

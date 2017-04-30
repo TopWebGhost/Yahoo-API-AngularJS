@@ -1,0 +1,43 @@
+<div class="detail-container">
+    <div class="container">
+        <h1 class="title">{{result.Name}}</h1>
+        <div class="table-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="row detail-view">
+                        <div class="col-xs-12 col-sm-6">
+                            <p><span>Previous Close</span><span>{{result.PreviousClose?result.PreviousClose:'N/A'}}</span></p>
+                            <p><span>Open</span><span>{{result.Open?result.Open:'N/A'}}</span></p>
+                            <p><span>Bid</span><span>{{result.Bid?result.Bid:'N/A'}}</span></p>
+                            <p><span>Ask</span><span>{{result.Ask?result.Ask:'N/A'}}</span></p>
+                            <p><span>Day's Range</span><span>{{result.DaysRange?result.DaysRange:'N/A'}}</span></p>
+                            <p><span>52 Week Range</span><span>{{result.YearRange?result.YearRange:'N/A'}}</span></p>
+                            <p><span>Volume</span><span>{{result.Volume?result.Volume:'N/A'}}</span></p>
+                            <p><span>Avg. Volume</span><span>{{result.AverageDailyVolume?result.AverageDailyVolume:'N/A'}}</span></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <p><span>Market Cap</span><span>{{result.MarketCapitalization?result.MarketCapitalization:'N/A'}}</span></p>
+                            <!--<p><span>Beta</span><span>{{result.}}</span></p>-->
+                            <p><span>PE Ratio (TTM)</span><span>{{result.PERatio?result.PERatio:'N/A'}}</span></p>
+                            <p><span>EPS (TTM)</span><span>{{result.EPSEstimateCurrentYear?result.EPSEstimateCurrentYear:'N/A'}}</span></p>
+                            <!--<p><span>Earnings Date</span><span>{{result.}}</span></p>-->
+                            <p><span>Dividend & Yield</span><span>{{result.DividendYield?result.DividendYield:'N/A'}}</span></p>
+                            <p><span>Ex-Dividend</span><span>{{result.ExDividendDate?result.ExDividendDate:'N/A'}}</span></p>
+                            <p><span>1y Target Est</span><span>{{result.OneyrTargetPrice?result.OneyrTargetPrice:'N/A'}}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <ul class="chart-selector">
+                        <li ng-repeat="range in chartRanges" ng-click="selectDate($index)" class="{{$index==currentView?'selected':''}}">{{range.text}}</li>
+                    </ul>
+                    <div class="chart-container">
+                        <div ng-if="!chartData.length" class="text-center"> No Data Available</div>
+                        <hc-chart options="chartOptions" ng-if="chartData.length">Placeholder for generic chart</hc-chart>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
